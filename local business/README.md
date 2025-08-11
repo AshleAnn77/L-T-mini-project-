@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Crumbs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #FFF3E0;
+      color: #000000;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #f5c1d3;
+      padding: 20px;
+    }
+    header h1 {
+      margin: 0;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: black;
+      cursor: pointer;
+    }
+    nav a.active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    .page {
+      display: none;
+      padding: 20px;
+    }
+    .page.active {
+      display: block;
+    }
+    .hero {
+      background-color: #f5c1d3;
+      padding: 40px;
+      text-align: center;
+      margin: 20px 0;
+    }
+    .btn {
+      background-color: #FFB3BA;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: black;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+    }
+    .services, .about-content, .contact-content {
+      background-color: #ffffff;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .card {
+      background-color: #e0f7fa;
+      padding: 15px;
+      margin: 10px 0;
+    }
+    form {
+      margin-top: 20px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+    footer {
+      background-color: #b6e3d8;
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    .thank-you-message {
+      font-size: 1.2em;
+      color: #6B4C3E;
+      text-align: center;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Crumbs</h1>
+  <nav>
+    <a href="#" id="nav-home" class="active">Home</a>
+    <a href="#" id="nav-about">About Us</a>
+    <a href="#" id="nav-contact">Contact Us</a>
+  </nav>
+</header>
+
+<!-- HOME PAGE -->
+<div id="home" class="page active">
+  <div class="hero">
+    <h2>Welcome to Crumbs</h2>
+    <p>Artisanal delights crafted with elegance and flavor.</p>
+    <button class="btn">Order Now</button>
+  </div>
+
+  <div class="services">
+    <h2>Our Delights</h2>
+    <div class="card">
+      <h3>Cakes</h3>
+      <p>Custom, beautiful creations.</p>
+    </div>
+    <div class="card">
+      <h3>Pastries</h3>
+      <p>Freshly made every morning.</p>
+    </div>
+    <div class="card">
+      <h3>Breads</h3>
+      <p>Wholesome and artisanal.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div id="about" class="page">
+  <div class="about-content">
+    <h2>About Crumbs</h2>
+    <p>Crumbs started in 2023 with a simple goal: to bring high-quality, homemade baked goods to our local community. What began as a weekend hobby quickly grew into a full-time passion fueled by love for food, creativity, and people.</p>
+    <p>We believe that baking is both an art and a science, and we take pride in using the freshest ingredients, traditional techniques, and a dash of innovation in everything we create.</p>
+    <p>Whether you're picking up a morning pastry, ordering a custom cake, or just stopping by for the smell of fresh bread, we’re here to make your day a little sweeter.</p>
+  </div>
+</div>
+
+<!-- CONTACT PAGE -->
+<div id="contact" class="page">
+  <div class="contact-content">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <label>Name:</label><br />
+      <input type="text" name="name" required /><br />
+
+      <label>Email:</label><br />
+      <input type="email" name="email" required /><br />
+
+      <label>Message:</label><br />
+      <textarea name="message" required></textarea><br />
+
+      <button type="submit" class="btn">Send</button>
+    </form>
+    <div id="thankYou" class="thank-you-message" style="display:none;">
+      Thank you for the message!
+    </div>
+
+    <div style="margin-top:20px;">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.290086377086!2d77.6409789152812!3d12.971891491448094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae159f6b43e27d%3A0x4e8f0c2d011baeed!2sIndiranagar%2C%20Bengaluru%2C%20Karnataka%20560038%2C%20India!5e0!3m2!1sen!2sus!4v1691688550425!5m2!1sen!2sus" 
+        width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 Crumbs. All Rights Reserved.</p>
+  <p>Follow us:
+    <a href="#">Facebook</a> |
+    <a href="#">Instagram</a>
+  </p>
+</footer>
+
+<script>
+  // Navigation and page switching
+  const pages = {
+    home: document.getElementById('home'),
+    about: document.getElementById('about'),
+    contact: document.getElementById('contact')
+  };
+
+  const navLinks = {
+    home: document.getElementById('nav-home'),
+    about: document.getElementById('nav-about'),
+    contact: document.getElementById('nav-contact')
+  };
+
+  function showPage(page) {
+    for (let key in pages) {
+      if (key === page) {
+        pages[key].classList.add('active');
+        navLinks[key].classList.add('active');
+      } else {
+        pages[key].classList.remove('active');
+        navLinks[key].classList.remove('active');
+      }
+    }
+  }
+
+  navLinks.home.addEventListener('click', (e) => {
+    e.preventDefault();
+    showPage('home');
+  });
+  navLinks.about.addEventListener('click', (e) => {
+    e.preventDefault();
+    showPage('about');
+  });
+  navLinks.contact.addEventListener('click', (e) => {
+    e.preventDefault();
+    showPage('contact');
+  });
+
+  // Form submit handler
+  const form = document.getElementById('contactForm');
+  const thankYouMessage = document.getElementById('thankYou');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    form.style.display = 'none';
+    thankYouMessage.style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
